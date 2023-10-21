@@ -1,11 +1,11 @@
 Name: indigo
-Version: 248
-Release: %autorelease
+Version: 2.0
+Release: 248
 Summary: INDIGO Astronomy Core Library and Drivers
 
 License: INDIGO-Astronomy-open-source-license
 URL: https://www.indigo-astronomy.org/
-Source0: https://github.com/indigo-astronomy/indigo/archive/refs/tags/2.0-%{version}.tar.gz
+Source0: https://github.com/indigo-astronomy/indigo/archive/refs/tags/${version}-%{release}.tar.gz
 
 BuildRequires: gcc
 BuildRequires: gcc-c++
@@ -30,7 +30,7 @@ BuildRequires: pkgconfig(libcurl)
 INDIGO is the next generation of INDI, based on layered architecture and software bus.
 
 %prep
-%autosetup -v -p1 -n indigo
+%autosetup
 
 
 %build
