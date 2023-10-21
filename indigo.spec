@@ -2,8 +2,9 @@ Name: indigo
 Version: 2.0
 Release: 248
 Summary: INDIGO Astronomy Core Library and Drivers
+BuildArch: noarch
 
-License: INDIGO-Astronomy-open-source-license
+License: INDIGO Astronomy open source license
 URL: https://www.indigo-astronomy.org/
 Source0: https://github.com/indigo-astronomy/indigo/archive/refs/tags/%{version}-%{release}.tar.gz
 
@@ -34,8 +35,7 @@ INDIGO is the next generation of INDI, based on layered architecture and softwar
 
 
 %build
-%configure
-%make_build
+make all
 
 
 %install
