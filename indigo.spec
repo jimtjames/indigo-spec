@@ -5,7 +5,7 @@ Summary: INDIGO Astronomy Core Library and Drivers
 
 License: INDIGO-Astronomy-open-source-license
 URL: https://www.indigo-astronomy.org/
-Source0: https://github.com/indigo-astronomy/indigo/archive/refs/tags/${version}-%{release}.tar.gz
+Source0: https://github.com/indigo-astronomy/indigo/archive/refs/tags/%{version}-%{release}.tar.gz
 
 BuildRequires: gcc
 BuildRequires: gcc-c++
