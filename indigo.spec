@@ -1,9 +1,9 @@
-Name: INDIGO Core
+Name: indigo
 Version: 2.0-248
 Release:        %autorelease
 Summary: INDIGO Astronomy Core Library and Drivers
 
-License: INDIGO Astronomy open-source license
+License: INDIGO-Astronomy-open-source-license
 URL: https://www.indigo-astronomy.org/
 Source0: https://github.com/indigo-astronomy/indigo/archive/refs/tags/%{version}.tar.gz
 
