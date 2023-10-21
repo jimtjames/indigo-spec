@@ -30,7 +30,7 @@ BuildRequires: pkgconfig(libcurl)
 INDIGO is the next generation of INDI, based on layered architecture and software bus.
 
 %prep
-%autosetup
+%autosetup -v -p1 -n indigo-%{version}-%{release}
 
 
 %build
