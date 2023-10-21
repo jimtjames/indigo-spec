@@ -23,6 +23,7 @@ BuildRequires: zlib-devel
 BuildRequires: gmock
 BuildRequires: pkgconfig(libusb-1.0)
 BuildRequires: pkgconfig(libcurl)
+BuildRequires: patchelf
 
 Requires: libtool
 Requires: avahi-compat-libdns_sd
