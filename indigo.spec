@@ -25,6 +25,7 @@ BuildRequires: gmock
 BuildRequires: pkgconfig(libusb-1.0)
 BuildRequires: pkgconfig(libcurl)
 BuildRequires: patchelf
+BuildRequires: sudo
 
 Requires: libtool
 Requires: avahi-compat-libdns_sd
@@ -43,7 +44,7 @@ make all
 
 
 %install
-make INSTALL_ROOT=%{buildroot} install
+make INSTALL_ROOT=%{buildroot} INSTALL_BIN=%{buildroot}/usr/bin INSTALL_LIB=%{buildroot}/usr/lib64 INSTALL_INCLUDE=%{buildroot}/include INSTALL_SHARE=%{buildroot}/usr/share install
 
 
 %check
@@ -52,6 +53,7 @@ make INSTALL_ROOT=%{buildroot} install
 %files
 %{_bindir}/*
 %{_libdir}/*
+%{_includedir}/*
 %{_datadir}/*
 %license
 %doc
