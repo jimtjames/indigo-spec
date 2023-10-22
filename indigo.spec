@@ -2,7 +2,6 @@ Name: indigo
 Version: 2.0
 Release: 248
 Summary: INDIGO Astronomy Core Library and Drivers
-BuildArch: noarch
 
 License: INDIGO Astronomy open source license
 URL: https://www.indigo-astronomy.org/
@@ -40,11 +39,21 @@ INDIGO is the next generation of INDI, based on layered architecture and softwar
 
 
 %build
+
+# We need to patch the Makefile to use relative paths for certain things
+sed -i 's/sudo//g' Makefile
+sed -i 's/udevadm control --reload-rules/#udevadm control --reload-rules/g' Makefile
+sed -i 's/install -d \/sbin/install -d $(INSTALL_ROOT)\/sbin/g' Makefile
+sed -i 's/install -d \/usr\/sbin/install -d $(INSTALL_ROOT)\/usr\/sbin/g' Makefile
+sed -i 's/install -m 0755 tools\/fxload\/fxload \/sbin/install -m 0755 tools\/fxload\/fxload $(INSTALL_ROOT)\/sbin/g' Makefile
+sed -i 's/install -m 0755 tools\/fxload\/fxload \/usr\/sbin/install -m 0755 tools\/fxload\/fxload $(INSTALL_ROOT)\/usr\/sbin/g' Makefile
+
 make all
 
-
 %install
+
 make INSTALL_ROOT=%{buildroot} INSTALL_BIN=%{buildroot}/usr/bin INSTALL_LIB=%{buildroot}/usr/lib64 INSTALL_INCLUDE=%{buildroot}/include INSTALL_SHARE=%{buildroot}/usr/share install
+#make INSTALL_ROOT=%{buildroot} install
 
 
 %check
@@ -58,6 +67,8 @@ make INSTALL_ROOT=%{buildroot} INSTALL_BIN=%{buildroot}/usr/bin INSTALL_LIB=%{bu
 %license
 %doc
 
+%post
+sudo udevadm control --reload-rules
 
 %changelog
 %autochangelog
